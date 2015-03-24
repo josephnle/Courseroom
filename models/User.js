@@ -1,4 +1,4 @@
-// { "path" : "models/__modelName__.js" }
+// { "User" : "models/user.js" }
 User = new Mongo.Collection('user.js');
 
 User.attachSchema(
