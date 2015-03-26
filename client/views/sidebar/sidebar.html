@@ -1,0 +1,23 @@
+<template name="sidebar">
+  <div class="ui celled list">
+    <h4>Rooms</h4>
+      {{#each rooms}}
+        <div class="item">
+          <div class="content">
+            {{name}}
+          </div>
+        </div>
+      {{/each}}
+  </div>
+
+  <div class="ui celled list">
+    <h4>Groups</h4>
+      {{#each groups}}
+        <div class="item">
+          <div class="content">
+              {{name}}
+          </div>
+        </div>
+      {{/each}}
+  </div>
+</template>

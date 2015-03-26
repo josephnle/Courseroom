@@ -1,0 +1,18 @@
+<template name="navbar">
+  <div class="ui blue inverted secondary menu">
+    <div class="header item">
+      Courseroom
+    </div>
+    <div class="right menu">
+        {{#if currentUser}}
+            {{#with currentUser.profile}}
+              <a href="#" class="ui item">{{name}}</a>
+            {{/with}}
+        {{else}}
+          <a href="/login" class="ui item">
+            Login
+          </a>
+        {{/if}}
+    </div>
+  </div>
+</template>
