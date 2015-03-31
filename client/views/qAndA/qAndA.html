@@ -1,16 +1,17 @@
 <template name="qAndA">
   <h4 class="ui header">Q&A</h4>
 
-    {{#each questions}}
-      <div class="ui fluid card">
-        <div class="content left aligned">
-          <strong>Q:</strong> {{question}}
+  <div class="scrollable-box">
+      {{#each questions}}
+        <div class="ui fluid card">
+          <div class="content left aligned">
+            <strong>Q:</strong> {{question}}
 
-          <div class="ui divider"></div>
+            <div class="ui divider"></div>
 
-          <strong>A:</strong> {{answer}}
+            <strong>A:</strong> {{answer}}
+          </div>
         </div>
-      </div>
-    {{/each}}
-
+      {{/each}}
+  </div>
 </template>
