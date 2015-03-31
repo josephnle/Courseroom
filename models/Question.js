@@ -13,11 +13,13 @@ Question.attachSchema(
     },
     createdBy: {
       type: String,
-      regEx: SimpleSchema.RegEx.Id
+      regEx: SimpleSchema.RegEx.Id,
+      autoValue: function() { if(this.isInsert) return Meteor.userId }
     },
     postedAt: {
       type: Date,
-      denyUpdate: true
+      denyUpdate: true,
+      autoValue: function() { if(this.isInsert) return new Date() }
     }
   })
 );

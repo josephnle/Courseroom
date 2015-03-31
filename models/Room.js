@@ -1,41 +1,36 @@
+Rooms = new Mongo.Collection('rooms');
 
-course = orion.attributes.registerAttribute('course', getSchema: function(coursename){
-  return{
-    type: String
-  };
-});
+Rooms.attachSchema(
+  new SimpleSchema({
+    name: {
+      type: String,
+      regEx: /^[a-zA-Z-]{2,25}$/,
+      optional: true
+    },
+    description:
+    {
+      type: String,
+      optional: true
+    },
+    course: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Id
+    }
+  })
+);
 
-roomSchema = {};
-roomSchema.RoomProfile = new SimpleSchema({
-  name: {
-    type: String,
-    regEx: /^[a-zA-Z-]{2,25}$/,
-    optional: true
-  }
-  description: 
-  {
-    type:String,
-    optional: true
-  }
-  course:{
-    type: [course]
-  }
-
-});
-
-roomSchema.Room = new SimpleSchema({
-  profile:{
-    type:roomSchema.RoomProfile
-  }
-  user: {
-    type: String,
-    regEx: SimpleSchema.RegEx.Id
-  },
-  roles: {
-    type: Object,
-    optional: true,
-    blackbox: true
-  }
-  
-});
-Meteor.room.attachSchema(roomSchema.Room);
+// Collection2 already does schema checking
+// Add custom permission rules if needed
+if (Meteor.isServer) {
+  Rooms.allow({
+    insert: function() {
+      return true;
+    },
+    update: function() {
+      return true;
+    },
+    remove: function() {
+      return true;
+    }
+  });
+}

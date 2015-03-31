@@ -1,18 +1,20 @@
 // { "answer" : "models/Answer.js" }
-Answer = new Mongo.Collection('answer');
+Answers = new Mongo.Collection('answers');
 
-Answer.attachSchema(
+Answers.attachSchema(
     new SimpleSchema({
     content: {
       type: String
     },
     createdBy: {
       type: String,
-      regEx: SimpleSchema.RegEx.Id
+      regEx: SimpleSchema.RegEx.Id,
+      autoValue: function() { if(this.isInsert) return Meteor.userId }
     },
     postedAt: {
       type: Date,
-      denyUpdate: true
+      denyUpdate: true,
+      autoValue: function() { if(this.isInsert) return new Date() }
     }
   })
 );
@@ -20,7 +22,7 @@ Answer.attachSchema(
 // Collection2 already does schema checking
 // Add custom permission rules if needed
 if (Meteor.isServer) {
-  Answer.allow({
+  Answers.allow({
     insert : function () {
       return true;
     },
