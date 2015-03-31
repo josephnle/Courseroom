@@ -5,8 +5,11 @@
     </div>
     <div class="right menu">
         {{#if currentUser}}
+            <a id='logout' class="ui item">Logout</a>
             {{#with currentUser.profile}}
-              <a href="#" class="ui item">{{name}}</a>
+
+              <a href="#" class="ui item">{{firstName}}</a>
+
             {{/with}}
         {{else}}
           <a href="/login" class="ui item">
