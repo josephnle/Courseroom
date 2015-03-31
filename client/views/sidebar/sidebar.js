@@ -1,4 +1,14 @@
 Template['sidebar'].helpers({
+
+
+  'courses': function() {
+    return [
+      {'name': 'cse 101'},
+      {'name': 'cse 8a'},
+      {'name': 'cse 110'}
+    ]
+  },
+
   'rooms': function() {
     return [
       {
@@ -25,6 +35,10 @@ Template['sidebar'].helpers({
     ]
   }
 });
+
+Template['sidebar'].rendered = function(){
+  this.$('.ui.courses.dropdown').dropdown();
+}
 
 Template['sidebar'].events({
 });
