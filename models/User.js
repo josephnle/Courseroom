@@ -1,20 +1,14 @@
-// { "User" : "models/user.js" }
+// { "User" : "models/User.js" }
 userSchema = {};
 
 userSchema.UserProfile = new SimpleSchema({
   firstName: {
     type: String,
     regEx: /^[a-zA-Z-]{2,25}$/,
-    optional: true
   },
   lastName: {
     type: String,
     regEx: /^[a-zA-Z]{2,25}$/,
-    optional: true
-  },
-  phone: {
-    type: String,
-    optional: true
   }
 });
 
