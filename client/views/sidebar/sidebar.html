@@ -4,7 +4,7 @@
       {{#each rooms}}
         <div class="item">
           <div class="content">
-            {{name}}
+            <a href="{{pathFor 'rooms' _id=this._id }}">{{name}}</a>
           </div>
         </div>
       {{/each}}
