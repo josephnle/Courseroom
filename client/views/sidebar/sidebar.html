@@ -1,4 +1,16 @@
 <template name="sidebar">
+
+  <div class="ui courses dropdown">
+    <input type="hidden" name="courses">
+    <div><h4>Courses<i class="dropdown icon"></i></h4></div>
+
+    <div class="menu">
+      {{#each courses}}
+            <option>{{name}}</option>
+      {{/each}}
+    </div>
+  </div>
+
   <div class="ui celled list">
     <h4>Rooms</h4>
       {{#each rooms}}
