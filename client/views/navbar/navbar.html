@@ -6,9 +6,10 @@
     <div class="right menu">
         {{#if currentUser}}
               <h4 class="ui item">Welcome!</h4>
+              <a href="#" class="ui item">{{currentUser.username}}</a>
             {{#with currentUser.profile}}
 
-              <a href="#" class="ui item">{{username}}</a>
+
               <a href="#" class="ui item">{{firstName}} {{lastName}}</a>
 
             {{/with}}
