@@ -1,3 +1,9 @@
+@import 'pages/landing';
+
+html, body {
+  min-height: 100vh;
+}
+
 .scrollable-box {
   overflow: auto !important;
   height: 90vh;

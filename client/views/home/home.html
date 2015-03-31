@@ -1,38 +1,45 @@
 <template name="home">
-  <div class="ui internally celled grid">
-    <div class="row">
-      <div class="three wide column">
-          {{> sidebar}}
-      </div>
-      <div class="nine wide column">
-        <div class="ui comments">
-            {{#each messages}}
-              <div class="comment">
-                <a class="avatar">
-                  <img src="{{author.image}}">
-                </a>
+  <div id="landing">
 
-                <div class="content">
-                  <a class="author">{{author.name}}</a>
-                  <!--<div class="metadata">-->
-                  <!--<span class="date">Today at 5:42PM</span>-->
-                  <!--</div>-->
-                  <div class="text">
-                      {{message}}
-                  </div>
-                </div>
-              </div>
-            {{/each}}
-        </div>
+    <div class="ui inverted vertical segment">
+      <div class="ui page grid">
+        <div class="column">
+          <div class="introduction">
+            <h1 class="ui inverted header">Courseroom</h1>
 
-        <form class="ui form">
-          <div class="field">
-            <textarea placeholder="Send your message..."></textarea>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a dignissim leo. Phasellus consectetur
+              ante vel vehicula tempor.</p>
           </div>
-        </form>
+        </div>
       </div>
-      <div class="center aligned four wide column">
-          {{> qAndA}}
+    </div>
+
+    <div class="ui three column page grid">
+      <div class="row">
+        <div class="column">
+          <h2 class="icon header">
+            <i class="plug icon"></i>
+          </h2>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a dignissim leo. Phasellus consectetur ante
+            vel vehicula tempor.</p>
+        </div>
+        <div class="column">
+          <h2 class="icon header">
+            <i class="plug icon"></i>
+          </h2>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a dignissim leo. Phasellus consectetur ante
+            vel vehicula tempor.</p>
+        </div>
+        <div class="column">
+          <h2 class="icon header">
+            <i class="plug icon"></i>
+          </h2>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a dignissim leo. Phasellus consectetur ante
+            vel vehicula tempor.</p>
+        </div>
       </div>
     </div>
   </div>
