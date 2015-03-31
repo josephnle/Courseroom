@@ -1,6 +1,6 @@
-Question = new Mongo.Collection('question');
+Questions = new Mongo.Collection('questions');
 
-Question.attachSchema(
+Questions.attachSchema(
   new SimpleSchema({
     title: {
       type: String
@@ -31,7 +31,7 @@ Question.attachSchema(
 // Collection2 already does schema checking
 // Add custom permission rules if needed
 if (Meteor.isServer) {
-  Question.allow({
+  Questions.allow({
     insert: function() {
       return true;
     },
