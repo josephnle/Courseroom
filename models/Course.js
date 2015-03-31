@@ -15,7 +15,7 @@ courseSchema.Course = new SimpleSchema({
   instructor_name:{
     type: String,
     regEx: /^[a-z0-9A-Z_]{3,15}$/
-  }
+  },
   semester: 
   {
     type: String,

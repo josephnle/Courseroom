@@ -15,7 +15,5 @@ messageSchema.Message= new SimpleSchema({
       type: String,
       regEx: SimpleSchema.RegEx.Id
     }
-  }
-
 });
 Meteor.message.attachSchema(messageSchema.Message);
