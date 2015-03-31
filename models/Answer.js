@@ -1,5 +1,5 @@
 // { "answer" : "models/Answer.js" }
-Answer = new Mongo.Collection('Answer');
+Answer = new Mongo.Collection('answer');
 
 Answer.attachSchema(
     new SimpleSchema({
@@ -20,7 +20,7 @@ Answer.attachSchema(
 // Collection2 already does schema checking
 // Add custom permission rules if needed
 if (Meteor.isServer) {
-  __modelName__.allow({
+  Answer.allow({
     insert : function () {
       return true;
     },
