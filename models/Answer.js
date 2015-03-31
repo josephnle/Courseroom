@@ -7,7 +7,7 @@ Answer.attachSchema(
       type: String
     },
     createdBy: {
-      type: String
+      type: String,
       regEx: SimpleSchema.RegEx.Id
     },
     postedAt: {
