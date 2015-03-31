@@ -11,6 +11,10 @@ Question.attachSchema(
     tag: {
       type: [String]
     },
+    room: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Id
+    },
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,

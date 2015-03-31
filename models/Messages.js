@@ -6,6 +6,10 @@ Messages.attachSchema(new SimpleSchema({
       type: String,
       regEx: /^[a-zA-Z-]{2,25}$/
     },
+    room: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Id
+    },
     postedAt: {
       type: Date,
       denyUpdate: true,

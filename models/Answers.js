@@ -10,6 +10,10 @@ Answers.attachSchema(
       type: String,
       regEx: SimpleSchema.RegEx.Id
     },
+    room: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Id
+    },
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,
