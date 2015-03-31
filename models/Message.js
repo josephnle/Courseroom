@@ -1,4 +1,4 @@
-// models/message.js
+
 messageSchema = {}
 user = orion.attributes.registerAttribute('username', getSchema: function(username){
   return{
