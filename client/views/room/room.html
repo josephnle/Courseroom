@@ -1,0 +1,39 @@
+<template name="room">
+  <div class="ui internally celled grid">
+    <div class="row">
+      <div class="three wide column">
+          {{> sidebar}}
+      </div>
+      <div class="nine wide column">
+        <div class="ui comments">
+            {{#each messages}}
+              <div class="comment">
+                <a class="avatar">
+                  <img src="{{author.image}}">
+                </a>
+
+                <div class="content">
+                  <a class="author">{{author.name}}</a>
+                  <!--<div class="metadata">-->
+                  <!--<span class="date">Today at 5:42PM</span>-->
+                  <!--</div>-->
+                  <div class="text">
+                      {{message}}
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+        </div>
+
+        <form class="ui form">
+          <div class="field">
+            <textarea placeholder="Send your message..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="center aligned four wide column">
+          {{> qAndA}}
+      </div>
+    </div>
+  </div>
+</template>
