@@ -1,25 +1,34 @@
-// { "Answer" : "models/answer.js"}
+// { "answer" : "models/Answer.js" }
+Answer = new Mongo.Collection('Answer');
 
-//grabs username attribute value from User schema
-user = orion.attributes.registerAttribute('username', getSchema: function(username){
-	return{
-		type: String
-	};
-});
+Answer.attachSchema(
+    new SimpleSchema({
+    content: {
+      type: String
+    },
+    createdBy: {
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+    },
+    postedAt: {
+      type: Date,
+      denyUpdate: true
+    }
+  })
+);
 
-answerSchema = {};
-
-answerSchema.Answer = new SimpleSchema({
-	answerText: {
-		type: String,
-		regex: /^[a-zA-Z-]{2,25}$/
-	},
-	postedAt: {
-		type: date
-	}
-	user: {
-		type: [user]
-	}
-});
-
-Meteor.answer.attachSchema(answerSchema.Answer);
+// Collection2 already does schema checking
+// Add custom permission rules if needed
+if (Meteor.isServer) {
+  __modelName__.allow({
+    insert : function () {
+      return true;
+    },
+    update : function () {
+      return true;
+    },
+    remove : function () {
+      return true;
+    }
+  });
+}

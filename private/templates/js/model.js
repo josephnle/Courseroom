@@ -1,15 +1,16 @@
-// { "path" : "models/__modelName__.js" }
-__modelName__ = new Mongo.Collection('__modelName__');
+// { "answer" : "models/Answer.js" }
+Answer = new Mongo.Collection('Answer');
 
-__modelName__.attachSchema(
+Answer.attachSchema(
     new SimpleSchema({
-    title: {
-      type: String
-    },
     content: {
       type: String
     },
-    createdAt: {
+    createdBy: {
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+    },
+    postedAt: {
       type: Date,
       denyUpdate: true
     }
