@@ -2,19 +2,27 @@
 Answers = new Mongo.Collection('answers');
 
 Answers.attachSchema(
-    new SimpleSchema({
+  new SimpleSchema({
     content: {
       type: String
+    },
+    question: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Id
     },
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,
-      autoValue: function() { if(this.isInsert) return Meteor.userId }
+      autoValue: function() {
+        if (this.isInsert) return Meteor.userId
+      }
     },
     postedAt: {
       type: Date,
       denyUpdate: true,
-      autoValue: function() { if(this.isInsert) return new Date() }
+      autoValue: function() {
+        if (this.isInsert) return new Date()
+      }
     }
   })
 );
@@ -23,13 +31,13 @@ Answers.attachSchema(
 // Add custom permission rules if needed
 if (Meteor.isServer) {
   Answers.allow({
-    insert : function () {
+    insert: function() {
       return true;
     },
-    update : function () {
+    update: function() {
       return true;
     },
-    remove : function () {
+    remove: function() {
       return true;
     }
   });
