@@ -1,33 +1,20 @@
+Meteor.subscribe('courses');
+Meteor.subscribe('rooms');
+
+Session.set('currentCourse', 'ysm6bQpf8c37rzA7u');
+
+var courseChangeDep = new Deps.Dependency();
+
 Template['sidebar'].helpers({
 
 
   'courses': function() {
-    return [
-      {'name': 'cse 101'},
-      {'name': 'cse 8a'},
-      {'name': 'cse 110'}
-    ]
+    return Courses.find();
   },
 
   'rooms': function() {
-    return [
-      {
-        '_id': '1',
-        'name': 'Classroom'
-      },
-      {
-        '_id': '2',
-        'name': 'Labs'
-      },
-      {
-        '_id': '3',
-        'name': 'Homework'
-      },
-      {
-        '_id': '4',
-        'name': 'General'
-      }
-    ]
+    courseChangeDep.depend();
+    return Rooms.find({course: Session.get('currentCourse')});
   },
   'groups': function() {
     return [
@@ -37,8 +24,17 @@ Template['sidebar'].helpers({
 });
 
 Template['sidebar'].rendered = function(){
-  this.$('.ui.courses.dropdown').dropdown();
-}
+  this.$('.ui.dropdown').dropdown();
+};
 
 Template['sidebar'].events({
+  'click .selectCourse': function(event) {
+    var course = $(event.target).data('id');
+
+    Session.set('currentCourse', course);
+
+    courseChangeDep.changed();
+
+    return false;
+  }
 });

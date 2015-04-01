@@ -3,8 +3,7 @@ Messages = new Mongo.Collection('messages');
 
 Messages.attachSchema(new SimpleSchema({
     message: {
-      type: String,
-      regEx: /^[a-zA-Z-]{2,25}$/
+      type: String
     },
     room: {
       type: String,
@@ -13,12 +12,14 @@ Messages.attachSchema(new SimpleSchema({
     postedAt: {
       type: Date,
       denyUpdate: true,
-      autoValue: function() { if(this.isInsert) return new Date() }
+      autoValue: function() { if(this.isInsert) return new Date() },
+      optional: true
     },
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,
-      autoValue: function() { if(this.isInsert) return Meteor.userId }
+      autoValue: function() { if(this.isInsert) return Meteor.userId },
+      optional: true
     }
   })
 );
