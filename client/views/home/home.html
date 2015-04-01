@@ -2,18 +2,30 @@
   <div id="landing">
 
     <div class="bground">
-      <div class="ui inverted vertical segment" background="classroom.png">
-        <div class="ui page grid">
-          <div class="column">
-            <div class="introduction">
-              <h1 class="ui inverted header">Courseroom</h1>
+      <div class="ui inverted vertical segment"
+           style="background: url(images/background/classroom.jpg);background-position: center; background-size: cover;">
+        <div class="overlay">
+          <div class="ui page grid">
+            <div class="column">
+              <div class="introduction">
+                <div class="content">
+                  <h1 class="ui inverted header">Courseroom</h1>
 
-              <p>Welcome to Courseroom! The place to get help on your courses from your fellow peers!</p>
+                  <p>Welcome to Courseroom! The place to get help on your courses from your fellow peers!</p>
+                    {{#if currentUser}}
+                      <a href="{{pathFor 'courses'}}" class="ui big blue button">Go to Courses</a>
+                    {{else}}
+                      <a href="/login" class="ui big blue button">Register</a>
+                    {{/if}}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="ui hidden divider"></div>
 
     <div class="ui two column page grid">
       <div class="row">
@@ -23,7 +35,10 @@
             Live Chatroom
           </h2>
 
-          <p>Stuck in the labs? Having trouble figuring out that one question on homework? Want to discuss a certain topic that you don't fully understand? Our live chatroom can help! You can talk to anyone within your same class in real-time through our chatroom to get that help you need! Each chatroom is separated into its own room based on the courses you are taking, so you can get that help quickly and efficiently.</p>
+          <p>Stuck in the labs? Having trouble figuring out that one question on homework? Want to discuss a certain
+            topic that you don't fully understand? Our live chatroom can help! You can talk to anyone within your same
+            class in real-time through our chatroom to get that help you need! Each chatroom is separated into its own
+            room based on the courses you are taking, so you can get that help quickly and efficiently.</p>
         </div>
         <div class="column">
           <h2 class="icon header">
@@ -31,7 +46,10 @@
             Question and Answer
           </h2>
 
-          <p>Got a question to ask but no one is around to answer it? Or would you like to make that question available for everyone to see to help out the class overall? The question and answer forum will help you do just that! You can post up questions through the chatbox itself and people can answer it when they are available! Students can also come together and work on getting an answer together too!</p>
+          <p>Got a question to ask but no one is around to answer it? Or would you like to make that question available
+            for everyone to see to help out the class overall? The question and answer forum will help you do just that!
+            You can post up questions through the chatbox itself and people can answer it when they are available!
+            Students can also come together and work on getting an answer together too!</p>
         </div>
 
       </div>

@@ -5,7 +5,19 @@
 
   .introduction {
     text-align: center;
-    height: 100vh;
+    height: 500px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    font-size: 1.6rem;
+
+    h1 {
+      font-size: 6rem;
+    }
+  }
+
+  .overlay {
+    background-color: rgba(0,0,0,0.4);
   }
 
   .masthead {
