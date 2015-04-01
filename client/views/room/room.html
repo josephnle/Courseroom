@@ -22,7 +22,7 @@
                             <a class="author">{{profile.firstName}} {{profile.lastName}}</a>
                           {{/with}}
                         <div class="metadata">
-                          <span class="date">{{postedAt}}</span>
+                          <span class="date">{{formatDate postedAt 'h:mm a'}}</span>
                         </div>
                         <div class="text">
                             {{message}}
