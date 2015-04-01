@@ -18,7 +18,7 @@ Answers.attachSchema(
       type: String,
       regEx: SimpleSchema.RegEx.Id,
       autoValue: function() {
-        if (this.isInsert) return Meteor.userId
+        if (this.isInsert) return this.userId
       },
       optional: true
     },

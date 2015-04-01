@@ -1,6 +1,11 @@
+Meteor.subscribe('answers');
+
 Template['room'].helpers({
   'author': function() {
     return Meteor.users.findOne(this.createdBy);
+  },
+  'answer': function() {
+    return Answers.findOne({question: this._id});
   }
 });
 
@@ -17,6 +22,14 @@ Template['room'].events({
     event.target.value = '';
 
     // Prevent default form submit
+    return false;
+  },
+  'submit .answerQuestionForm': function(event) {
+    var course = $(event.target).data('id');
+    var answer = event.target.answerQuestionText.value;
+
+    Answers.insert({content: answer, question: course, room: Router.current().params._id});
+
     return false;
   }
 });

@@ -52,7 +52,15 @@
 
                     <div class="ui divider"></div>
 
-                    <strong>A:</strong> {{answer}}
+                      {{#with answer}}
+                        <strong>A:</strong> {{content}}
+                      {{else}}
+                        <form class="answerQuestionForm ui form" data-id="{{_id}}">
+                          <label>Answer this question:</label>
+                          <textarea rows="10" name="answerQuestionText" style="height: 30px;"></textarea>
+                          <input type="submit" class="fluid ui blue button" value="Submit Answer">
+                        </form>
+                      {{/with}}
                   </div>
                 </div>
               {{/each}}
