@@ -1,5 +1,5 @@
 Meteor.subscribe('messages');
-Meteor.subscribe('courses')
+Meteor.subscribe('courses');
 
 Router.route('/courses', {
     'name': 'courses',
@@ -28,6 +28,7 @@ Router.route('/courses/:_id', {
         },
         data: function() {
           return {
+            course: Courses.findOne(this.params._id),
             rooms: Rooms.find({course: this.params._id})
           }
         }
