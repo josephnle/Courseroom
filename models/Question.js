@@ -16,12 +16,14 @@ Questions.attachSchema(
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,
-      autoValue: function() { if(this.isInsert) return Meteor.userId }
+      autoValue: function() { if(this.isInsert) return this.userId },
+      optional: true
     },
     postedAt: {
       type: Date,
       denyUpdate: true,
-      autoValue: function() { if(this.isInsert) return new Date() }
+      autoValue: function() { if(this.isInsert) return new Date() },
+      optional: true
     }
   })
 );
