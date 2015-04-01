@@ -11,10 +11,7 @@ Template['room'].events({
 
     var text = event.target.value;
 
-    Messages.insert({
-      message: text,
-      room: Router.current().params._id
-    });
+    Meteor.call('sendMessage', text, Router.current().params._id);
 
     // Clear form
     event.target.value = '';

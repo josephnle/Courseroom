@@ -19,14 +19,16 @@ Answers.attachSchema(
       regEx: SimpleSchema.RegEx.Id,
       autoValue: function() {
         if (this.isInsert) return Meteor.userId
-      }
+      },
+      optional: true
     },
     postedAt: {
       type: Date,
       denyUpdate: true,
       autoValue: function() {
         if (this.isInsert) return new Date()
-      }
+      },
+      optional: true
     }
   })
 );

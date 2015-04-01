@@ -2,14 +2,12 @@ Questions = new Mongo.Collection('questions');
 
 Questions.attachSchema(
   new SimpleSchema({
-    title: {
-      type: String
-    },
     content: {
       type: String
     },
     tag: {
-      type: [String]
+      type: [String],
+      optional: true
     },
     room: {
       type: String,
