@@ -1,4 +1,7 @@
 Template['room'].helpers({
+  'author': function() {
+    return Meteor.users.findOne(this.createdBy);
+  }
 });
 
 Template['room'].events({

@@ -8,12 +8,16 @@
         <div class="ui comments">
             {{#each messages}}
               <div class="comment">
+                {{#with author}}
                 <a class="avatar">
-                  <img src="{{author.image}}">
+                  <img src="{{profile.avatar}}">
                 </a>
+                    {{/with}}
 
                 <div class="content">
-                  <a class="author">{{author.name}}</a>
+                  {{#with author}}
+                  <a class="author">{{profile.firstName}} {{profile.lastName}}</a>
+                      {{/with}}
                   <div class="metadata">
                   <span class="date">{{postedAt}}</span>
                   </div>
