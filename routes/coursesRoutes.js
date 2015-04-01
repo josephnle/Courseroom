@@ -1,4 +1,5 @@
 Meteor.subscribe('messages');
+Meteor.subscribe('questions');
 Meteor.subscribe('courses');
 
 Router.route('/courses', {
