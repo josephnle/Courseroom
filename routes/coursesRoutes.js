@@ -1,19 +1,34 @@
 Meteor.subscribe('messages');
+Meteor.subscribe('courses')
 
-Router.route('/courses/:_id', {
+Router.route('/courses', {
     'name': 'courses',
     'action': function() {
-      var room = Rooms.find({course: this.params._id}, {limit: 1}).fetch();
-      SEO.set({title: 'Room ' + room.name + ' | ' + Meteor.App.NAME});
-      this.render('room', {
+      SEO.set({title: 'Courses | ' + Meteor.App.NAME});
+      this.render('courses', {
         waitOn: function() {
-          return [Meteor.subscribe('messages'),
-                  Meteor.subscribe('questions')];
+          return [Meteor.subscribe('courses')];
         },
         data: function() {
           return {
-            messages: Messages.find({room: room._id}),
-            questions: Questions.find({room: room._id})
+            courses: Courses.find()
+          }
+        }
+      });
+    }
+  }
+);
+
+Router.route('/courses/:_id', {
+    'name': 'course',
+    'action': function() {
+      this.render('course', {
+        waitOn: function() {
+          return Meteor.subscribe('courses');
+        },
+        data: function() {
+          return {
+            rooms: Rooms.find({course: this.params._id})
           }
         }
       });
@@ -22,7 +37,7 @@ Router.route('/courses/:_id', {
 );
 
 Router.route('/rooms/:_id', {
-    'name': 'rooms',
+    'name': 'room',
     'action': function() {
       var room = Rooms.findOne(this.params._id);
       SEO.set({title: 'Room ' + room.name + ' | ' + Meteor.App.NAME});

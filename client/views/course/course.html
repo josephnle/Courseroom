@@ -1,0 +1,28 @@
+<template name="course">
+  <div class="ui page one column grid">
+    <div class="column">
+      <h1>Rooms</h1>
+
+      <div class="ui segment">
+        <div class="ui items">
+            {{#each rooms}}
+              <div class="item">
+                <div class="header"><h3>{{name}}</h3></div>
+                <div class="description">
+                  <p>{{description}}</p>
+                </div>
+                <div class="extra">
+                  <a href="{{pathFor 'room' _id=this._id}}">
+                    <div class="ui right floated button">
+                      Go to Room
+                    </div>
+                  </a>
+                </div>
+              </div>
+            {{/each}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
