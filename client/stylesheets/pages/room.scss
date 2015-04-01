@@ -1,0 +1,22 @@
+#room {
+  height: 100%;
+
+  #messageWrapper {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  #messages {
+    overflow: auto !important;
+    order: 1;
+    height: 70vh;
+    flex: 4 100%;
+  }
+
+  #sendMessageForm {
+    width: 100%;
+    height: 10vh;
+    order: 2;
+    flex: 1 100%;
+  }
+}

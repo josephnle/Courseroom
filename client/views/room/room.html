@@ -1,42 +1,49 @@
 <template name="room">
-  <div class="ui internally celled grid">
-    <div class="row">
-      <div class="three wide column">
-          {{> sidebar}}
-      </div>
-      <div class="nine wide column">
-        <div class="ui comments">
-            {{#each messages}}
-              <div class="comment">
-                {{#with author}}
-                <a class="avatar">
-                  <img src="{{profile.avatar}}">
-                </a>
-                    {{/with}}
-
-                <div class="content">
-                  {{#with author}}
-                  <a class="author">{{profile.firstName}} {{profile.lastName}}</a>
-                      {{/with}}
-                  <div class="metadata">
-                  <span class="date">{{postedAt}}</span>
-                  </div>
-                  <div class="text">
-                      {{message}}
-                  </div>
-                </div>
-              </div>
-            {{/each}}
+  <div id="room">
+    <div class="ui internally celled grid">
+      <div class="row">
+        <div class="three wide column">
+            {{> sidebar}}
         </div>
+        <div class="nine wide column">
+          <div id="messageWrapper" class="full height">
+            <div id="messages">
+              <div class="ui comments">
+                  {{#each messages}}
+                    <div class="comment">
+                        {{#with author}}
+                          <a class="avatar">
+                            <img src="{{profile.avatar}}">
+                          </a>
+                        {{/with}}
 
-        <form id="sendMessageForm" class="ui form">
-          <div class="field">
-            <textarea name="message" id="messageText" placeholder="Send your message..."></textarea>
+                      <div class="content">
+                          {{#with author}}
+                            <a class="author">{{profile.firstName}} {{profile.lastName}}</a>
+                          {{/with}}
+                        <div class="metadata">
+                          <span class="date">{{postedAt}}</span>
+                        </div>
+                        <div class="text">
+                            {{message}}
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}}
+              </div>
+
+            </div>
+
+            <form id="sendMessageForm" class="ui form">
+              <div class="field">
+                <textarea name="message" id="messageText" placeholder="Send your message..."></textarea>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-      <div class="center aligned four wide column">
-          {{> qAndA}}
+        </div>
+        <div class="center aligned four wide column">
+            {{> qAndA}}
+        </div>
       </div>
     </div>
   </div>
