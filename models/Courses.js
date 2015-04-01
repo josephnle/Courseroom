@@ -4,26 +4,27 @@ Courses = new Mongo.Collection('courses');
 Courses.attachSchema(new SimpleSchema({
     name: {
       type: String,
-      regEx: /^[a-z0-9A-Z_]{3,15}$/
+      label: 'Course Name'
     },
     objective: {
       type: String,
-      regEx: /^[a-z0-9A-Z_]{3,15}$/,
+      label: 'Course Objective',
       optional: true
     },
     instructorName: {
       type: String,
-      regEx: /^[a-z0-9A-Z_]{3,15}$/
+      label: 'Instructor Name'
     },
-    semester: {
+    season: {
       type: String,
-      regEx: /^[a-zA-Z-]{2,25}$/,
+      label: 'Course Season',
       optional: true
     },
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,
-      autoValue: function() { if(this.isInsert) return Meteor.userId }
+      autoValue: function() { if(this.isInsert) return this.userId },
+      optional: true
     }
   })
 );
