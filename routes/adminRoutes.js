@@ -7,3 +7,7 @@ Router.route('/admin', function () {
 Router.route('/admin/courses', function () {
   this.render('adminCourses');
 });
+
+Router.route('/admin/rooms', function () {
+  this.render('adminRooms');
+});

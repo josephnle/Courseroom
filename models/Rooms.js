@@ -4,16 +4,18 @@ Rooms.attachSchema(
   new SimpleSchema({
     name: {
       type: String,
-      regEx: /^[a-zA-Z-]{2,25}$/,
+      label: 'Room Name',
       optional: true
     },
     description:
     {
       type: String,
+      label: 'Room Description',
       optional: true
     },
     course: {
       type: String,
+      label: 'Course',
       regEx: SimpleSchema.RegEx.Id
     }
   })
