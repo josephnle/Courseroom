@@ -1,3 +1,3 @@
-Meteor.publish('questions', function (roomId) {
-  return Questions.find({room: roomId});
+Meteor.publish('questions', function () {
+  return Questions.find();
 });

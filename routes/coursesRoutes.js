@@ -1,3 +1,5 @@
+Meteor.subscribe('messages');
+
 Router.route('/courses/:_id', {
     'name': 'courses',
     'action': function() {
@@ -5,8 +7,8 @@ Router.route('/courses/:_id', {
       SEO.set({title: 'Room ' + room.name + ' | ' + Meteor.App.NAME});
       this.render('room', {
         waitOn: function() {
-          return [Meteor.subscribe('messages', room._id),
-                  Meteor.subscribe('questions', room._id)];
+          return [Meteor.subscribe('messages'),
+                  Meteor.subscribe('questions')];
         },
         data: function() {
           return {
@@ -26,8 +28,8 @@ Router.route('/rooms/:_id', {
       SEO.set({title: 'Room ' + room.name + ' | ' + Meteor.App.NAME});
       this.render('room', {
         waitOn: function() {
-          return [Meteor.subscribe('messages', this.params._id),
-                  Meteor.subscribe('questions', this.params._id)];
+          return [Meteor.subscribe('messages'),
+                  Meteor.subscribe('questions')];
         },
         data: function() {
           return {

@@ -1,3 +1,3 @@
-Meteor.publish('messages', function (roomId) {
-  return Messages.find({room: roomId});
+Meteor.publish('messages', function () {
+  return Messages.find();
 });

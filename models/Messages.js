@@ -18,7 +18,7 @@ Messages.attachSchema(new SimpleSchema({
     createdBy: {
       type: String,
       regEx: SimpleSchema.RegEx.Id,
-      autoValue: function() { if(this.isInsert) return Meteor.userId },
+      autoValue: function() { if(this.isInsert) return this.userId },
       optional: true
     }
   })
